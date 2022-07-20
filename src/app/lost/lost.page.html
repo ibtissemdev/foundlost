@@ -1,9 +1,52 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>lost</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Accueil"></ion-back-button>
+    </ion-buttons>
+    <ion-title>J'AI PERDU</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div id="container" class="bg-img"></div>
+  <h1><b>Ajouter un objet perdu</b></h1>
+
+  <ion-card>
+    <form (ngSubmit)="submitForm()">
+      <ion-item lines="full">
+        <ion-label>Description</ion-label>
+        <ion-input [(ngModel)]="data.description" type="text" name="description"
+          placeholder="entrer la description de l'objet"></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>Date de la perte</ion-label>
+        <ion-input [(ngModel)]="data.date" name="date" type="date" placeholder="entrer la date de la perte"></ion-input>
+
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Lieu</ion-label>
+        <ion-input [(ngModel)]="data.location" type="text" name="location" placeholder="entrer le lieu de la perte">
+        </ion-input>
+
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Prénom : </ion-label>
+        <ion-input [(ngModel)]="firstname" type="text" name="firstname" placeholder="entrer votre prénom"></ion-input>
+
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Nom : </ion-label>
+        <ion-input [(ngModel)]="data.lastname" type="text" name="lastname" placeholder="entrer votre nom"></ion-input>
+
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Email : </ion-label>
+        <ion-input [(ngModel)]="data.email" type="text" name="email" placeholder="entrer votre e-mail"></ion-input>
+
+      </ion-item>
+    </form>
+  </ion-card>
+  <ion-button expand="block" class="add-button">Ajouter un objet</ion-button>
 
 </ion-content>

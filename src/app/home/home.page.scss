@@ -49,3 +49,14 @@ text-align:center;
 margin-bottom: 20px;
 
   }
+
+.objet {
+
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .per, .trou {
+    font-size: 10px;
+    text-align: start;
+  }
+}

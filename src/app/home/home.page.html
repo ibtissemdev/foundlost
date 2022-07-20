@@ -10,21 +10,21 @@
   <div id="container">
     <ion-icon  class="logo" color="primary" name="chatbubbles-outline"></ion-icon> <br>
     <ion-label>Effectuez une déclaration</ion-label>
-    <ion-item routerLink="/lost">
+    <ion-item routerLink="/lost" color="secondary">
 
-      <ion-label>J'ai perdu un objet</ion-label>
+      <ion-label class="perdu_objet">J'AI PERDU UN OBJET</ion-label>
     </ion-item>
-    <ion-item routerLink="/found">
+    <ion-item routerLink="/found" color="secondary">
 
-      <ion-label class="perdu_objet">J'ai trouvé un objet</ion-label>
+      <ion-label class="trouve_objet">J'AI TROUVE UN OBJET</ion-label>
     </ion-item>
 
-    <ion-label>Ou accédez aux listes d'objets</ion-label>
-    <ion-item routerLink="/lostlist">
+    <ion-label  class="acceder">Ou accédez aux listes d'objets</ion-label>
+    <ion-item routerLink="/lostlist" color="secondary" >
       <ion-icon slot="start" color="medium" name="happy-outline"></ion-icon>
       <ion-label>Objets perdu</ion-label>
     </ion-item>
-    <ion-item routerLink="/foundlist">
+    <ion-item routerLink="/foundlist"color="secondary">
       <ion-icon slot="start" color="medium" name="happy-outline"></ion-icon>
       <ion-label>Objets trouves</ion-label>
     </ion-item>

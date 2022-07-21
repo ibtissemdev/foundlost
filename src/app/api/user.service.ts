@@ -20,7 +20,7 @@ this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
    }
 // On définit la méthode qui envoie les données du formulaire au serveur backend.
  submitForm(data) {
- return this.http.post('http://localhost/ionic_techno/manage-data.php?key=create', data);
+ return this.http.post("http://localhost/ionicserver/manage-data.php?key=create", data);
  }
   
 }

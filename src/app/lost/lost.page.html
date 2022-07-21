@@ -12,21 +12,21 @@
   <h1><b>Ajouter un objet perdu</b></h1>
 
   <ion-card>
-    <form (ngSubmit)="submitForm()">
+    <form  (ngSubmit)="submitForm()">
       <ion-item lines="full">
         <ion-label>Description</ion-label>
-        <ion-input [(ngModel)]="data.description" type="text" name="description"
+        <ion-input [(ngModel)]="description" type="text" name="description"
           placeholder="entrer la description de l'objet"></ion-input>
       </ion-item>
 
       <ion-item lines="full">
         <ion-label>Date de la perte</ion-label>
-        <ion-input [(ngModel)]="data.date" name="date" type="date" placeholder="entrer la date de la perte"></ion-input>
+        <ion-input [(ngModel)]="date" name="date" type="date" placeholder="entrer la date de la perte"></ion-input>
 
       </ion-item>
       <ion-item lines="full">
         <ion-label>Lieu</ion-label>
-        <ion-input [(ngModel)]="data.location" type="text" name="location" placeholder="entrer le lieu de la perte">
+        <ion-input [(ngModel)]="location" type="text" name="location" placeholder="entrer le lieu de la perte">
         </ion-input>
 
       </ion-item>
@@ -37,16 +37,17 @@
       </ion-item>
       <ion-item lines="full">
         <ion-label>Nom : </ion-label>
-        <ion-input [(ngModel)]="data.lastname" type="text" name="lastname" placeholder="entrer votre nom"></ion-input>
+        <ion-input [(ngModel)]="lastname" type="text" name="lastname" placeholder="entrer votre nom"></ion-input>
 
       </ion-item>
       <ion-item lines="full">
         <ion-label>Email : </ion-label>
-        <ion-input [(ngModel)]="data.email" type="text" name="email" placeholder="entrer votre e-mail"></ion-input>
+        <ion-input [(ngModel)]="email" type="text" name="email" placeholder="entrer votre e-mail"></ion-input>
 
       </ion-item>
+      <ion-button expand="block" type="submit" class="add-button">Ajouter un objet</ion-button>
     </form>
   </ion-card>
-  <ion-button expand="block" class="add-button">Ajouter un objet</ion-button>
+
 
 </ion-content>

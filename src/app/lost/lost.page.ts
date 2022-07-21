@@ -9,7 +9,7 @@ import { UserService } from '../api/user.service';
 })
 export class LostPage implements OnInit {
  description:string;
- statut:number;
+ status:number;
  date:Date;
  location:string;
  firstname:string;
@@ -25,16 +25,19 @@ export class LostPage implements OnInit {
   }
 
   submitForm() {
+
+
     let data = {
       description:this.description,
-      status:0,
-      date:"",
-      location:"",
-      firstname:"",
-      lastname: "",
-      email: ""
+      status: 0,
+      date:this.date,
+      location:this.location,
+      firstname:this.firstname,
+      lastname:this.lastname,
+      email: this.email
 
     }
+    console.log(data)
 
     this.apiService.submitForm(data).subscribe((res) => {
       console.log("SUCCES ===", res);

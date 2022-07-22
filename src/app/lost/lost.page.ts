@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../api/user.service';
-
+import { NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-lost',
@@ -16,6 +16,7 @@ export class LostPage implements OnInit {
  lastname:string;
  email:string;
 
+
   constructor(public apiService: UserService) {
 
   }
@@ -24,9 +25,9 @@ export class LostPage implements OnInit {
 
   }
 
-  submitForm() {
+  submitForm(form:NgForm) {
 
-
+console.log(this.description);
     let data = {
       description:this.description,
       status: 0,
@@ -34,14 +35,19 @@ export class LostPage implements OnInit {
       location:this.location,
       firstname:this.firstname,
       lastname:this.lastname,
-      email: this.email
+      email: this.email,
 
     }
-    console.log(data)
+
+   console.log(data)
 
     this.apiService.submitForm(data).subscribe((res) => {
       console.log("SUCCES ===", res);
+   
     })
+  
+  form.resetForm();
   }
+
 
 }

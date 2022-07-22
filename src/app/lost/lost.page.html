@@ -12,7 +12,7 @@
   <h1><b>Ajouter un objet perdu</b></h1>
 
   <ion-card>
-    <form  (ngSubmit)="submitForm()">
+    <form  #userForm="ngForm"  (ngSubmit)="submitForm(userForm)" >
       <ion-item lines="full">
         <ion-label>Description</ion-label>
         <ion-input [(ngModel)]="description" type="text" name="description"
@@ -45,7 +45,8 @@
         <ion-input [(ngModel)]="email" type="email" name="email" placeholder="entrer votre e-mail"></ion-input>
 
       </ion-item>
-      <ion-button expand="block" type="submit" class="add-button">Ajouter un objet</ion-button>
+      <ion-button expand="block" type="submit"  class="add-button"  >Ajouter un objet</ion-button>
+      <ion-button expand="block" type="reset"  class="add-button" >Effacer</ion-button>
     </form>
   </ion-card>
 

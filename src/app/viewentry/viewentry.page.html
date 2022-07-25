@@ -11,13 +11,14 @@
   <div id="container" class="bg-img">
 
     <h1>Liste des objets perdus</h1>
-  <ion-card>
-        <ion-item lines="none">
-          <p>Description : {{foundData.description}} </p>
-       
-
-        </ion-item>
-
+    <ion-card>
+      <ion-item lines="none">
+        <ion-label>
+          <h2>Descrih2tion : {{viewData.description}} </h2>
+          <p>date : {{viewData.date}} </p>
+          <p>lieux : {{viewData.location}} </p>
+        </ion-label>
+      </ion-item>
 
     </ion-card>
 

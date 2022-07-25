@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./foundlist/foundlist.module').then( m => m.FoundlistPageModule)
   },
   {
-    path: 'viewentry',
+    path: 'viewentry/:id',
     loadChildren: () => import('./viewentry/viewentry.module').then( m => m.ViewentryPageModule)
   },
   {

@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-viewentry',
   templateUrl: './viewentry.page.html',
   styleUrls: ['./viewentry.page.scss'],
 })
 export class ViewentryPage implements OnInit {
-  // Créer deux propriétés
-  // URL du serveur backend
   
-  bdUrl = 'http://localhost/ionicserver/retrieve-data.php/?id=2';
-
   // Un tableau
   // entryData = [];
  
-  foundData = {
+  viewData = {
     id:'',
     status: 1,
     description: '',
@@ -24,24 +21,31 @@ export class ViewentryPage implements OnInit {
   // Récupérer le service par injection de dépendance
 
   constructor(public http : HttpClient) { 
-    this. getEntry(this.foundData.id)
-    //  console.log(this.entryData[1])
+    this.getOneEntry()
+    //  console.log(this.entryData[1])     
+     
+        
   }
 
   ngOnInit() {
   }
-  getEntry(id) {
-    this.readAPI(this.bdUrl).subscribe((data) => {
+  getOneEntry() {
+    var urlcourante = document.location.href; 
+    var urlcourante = urlcourante.replace(/\/$/, "");
+    // Gardons dans la variable queue_url uniquement la portion derrière le dernier slash de urlcourante
+    var queue_url = urlcourante.substring (urlcourante.lastIndexOf( "/" )+1 );
+     
+      console.log(queue_url);
+        // URL du serveur backend
+    this.readAPI('http://localhost/ionicserver/retrieve-data.php/?id='+queue_url).subscribe((data) => {
 
 
-    
-  
-// console.log(data);
-this.foundData.id = id;
-this.foundData.status = data['status'];
-this.foundData.description = data['description'];
-this.foundData.location = data['location'];
-this.foundData.date = data['date'];
+
+// this.viewData.id = id;
+this.viewData.status = data['status'];
+this.viewData.description = data['description'];
+this.viewData.location = data['location'];
+this.viewData.date = data['date'];
 
      }); // fin subscribe
 

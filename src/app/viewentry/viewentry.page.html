@@ -1,13 +1,27 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/lostlist" text="
-      Objets perdus"></ion-back-button>
+      <ion-back-button defaultHref="/lostlist" text="Objets perdus"></ion-back-button>
     </ion-buttons>
     <ion-title>viewentry</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div id="container" class="bg-img">
+
+    <h1>Liste des objets perdus</h1>
+  <ion-card>
+        <ion-item lines="none">
+          <p>Description : {{foundData.description}} </p>
+       
+
+        </ion-item>
+
+
+    </ion-card>
+
+
+  </div>
 
 </ion-content>

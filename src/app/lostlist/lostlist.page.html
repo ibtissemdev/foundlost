@@ -13,7 +13,7 @@
     <ion-card *ngFor="let list of entryData">
       <ion-item-sliding>
         <ion-item-options side="end">
-          <ion-item-option (click)="showLost(lost)">
+          <ion-item-option (click)="getEntry(list.id)">
 
             <ion-item-option routerLink="/viewentry">
               <ion-icon name="eye-outline" slot="icon-only">
@@ -27,6 +27,8 @@
           <p>Description : {{ list.description}}</p>
           <p>Lieux :{{ list.location}}</p>
           <p>Date : {{ list.date}}</p>
+          <p>Firstname : {{list.firstname}}</p>
+          <p>Id : {{ list.id }}</p>
 
         </ion-item>
       </ion-item-sliding>

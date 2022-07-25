@@ -9,35 +9,39 @@ import { HttpClient } from '@angular/common/http';
 export class ViewentryPage implements OnInit {
   // Créer deux propriétés
   // URL du serveur backend
+  
   bdUrl = 'http://localhost/ionicserver/retrieve-data.php/?id=2';
-  // Un tableau
-  entryData = [];
 
+  // Un tableau
+  // entryData = [];
+ 
+  foundData = {
+    id:'',
+    status: 1,
+    description: '',
+    location: '',
+    date: ''};
   // Récupérer le service par injection de dépendance
 
   constructor(public http : HttpClient) { 
-    this. getEntry()
-    // console.log(this.entryData[2].id)
+    this. getEntry(this.foundData.id)
+    //  console.log(this.entryData[1])
   }
 
   ngOnInit() {
   }
-  getEntry() {
+  getEntry(id) {
     this.readAPI(this.bdUrl).subscribe((data) => {
 
-    for (let i=0; i<Object.keys(data).length; i++) {
+
     
-   this.entryData[i] = {
-    "id": data[i].id_object,
-    "status": data[i].status,
-    "description": data[i].description,
-    "date": data[i].date,
-    "location": data[i].location,
-    "firstname": data[i].firstname,
-    "lastname": data[i].lastname,
-    "email": data[i].email};
-    
-    } // fin boucle for
+  
+// console.log(data);
+this.foundData.id = id;
+this.foundData.status = data['status'];
+this.foundData.description = data['description'];
+this.foundData.location = data['location'];
+this.foundData.date = data['date'];
 
      }); // fin subscribe
 
@@ -45,7 +49,7 @@ export class ViewentryPage implements OnInit {
 
 
     readAPI(URL: string) {
-     
+
     return this.http.get(URL);
     }
 

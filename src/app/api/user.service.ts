@@ -22,5 +22,11 @@ this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
  submitForm(data) {
  return this.http.post("http://localhost/ionicserver/manage-data.php?key=create", data);
  }
-  
+
+ delete(id){
+
+  return this.http.get("http://localhost/ionicserver/manage-data.php?key=delete&id="+id)
+
+ }
+
 }

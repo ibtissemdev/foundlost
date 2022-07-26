@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from '../api/user.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class ViewentryPage implements OnInit {
     date: ''};
   // Récupérer le service par injection de dépendance
 
-  constructor(public http : HttpClient) { 
+  constructor(public http : HttpClient , public apiService: UserService ) { 
     this.getOneEntry()
     //  console.log(this.entryData[1])     
      
@@ -46,7 +47,7 @@ this.viewData.status = data['status'];
 this.viewData.description = data['description'];
 this.viewData.location = data['location'];
 this.viewData.date = data['date'];
-
+this.viewData.id = data['id_object'];
      }); // fin subscribe
 
      }
@@ -57,5 +58,12 @@ this.viewData.date = data['date'];
     return this.http.get(URL);
     }
 
+    deleteObject(viewData :any){
+      
+      this.apiService.delete(this.viewData.id).subscribe(res=>{this.viewData;
+        console.log(res); });}
+     
+
+      
 
 }

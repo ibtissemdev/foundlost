@@ -22,6 +22,8 @@ export class LostlistPage implements OnInit {
   }
 
   ngOnInit() {
+    
+
   }
    getEntry() {
     this.readAPI(this.bdUrl).subscribe((data) => {

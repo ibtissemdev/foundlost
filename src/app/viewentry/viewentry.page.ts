@@ -24,7 +24,7 @@ export class ViewentryPage implements OnInit {
   constructor(public http : HttpClient , public apiService: UserService ) { 
     this.getOneEntry()
     //  console.log(this.entryData[1])     
-     
+   
         
   }
 
@@ -59,9 +59,10 @@ this.viewData.id = data['id_object'];
     }
 
     deleteObject(viewData :any){
-      
-      this.apiService.delete(this.viewData.id).subscribe(res=>{this.viewData;
-        console.log(res); });}
+    
+
+      this.apiService.delete(this.viewData.id).subscribe(res=>{this.getOneEntry();
+        console.log(res) });}
      
 
       

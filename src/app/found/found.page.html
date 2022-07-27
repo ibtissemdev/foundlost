@@ -12,7 +12,7 @@
   <h1><b>Ajouter un objet Trouvé</b></h1>
 
   <ion-card>
-    <form  (ngSubmit)="submitForm()">
+    <form  (ngSubmit)="submitForm()" name="myForm">
       <ion-item lines="full">
         <ion-label>Description</ion-label>
         <ion-input [(ngModel)]="description" type="text" name="description"
@@ -46,6 +46,8 @@
 
       </ion-item>
       <ion-button expand="block" type="submit" class="add-button">Ajouter un objet</ion-button>
+      <ion-button expand="block" type="reset"  class="add-button" >Effacer</ion-button>
+     
     </form>
   </ion-card>
 

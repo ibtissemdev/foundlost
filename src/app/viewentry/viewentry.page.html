@@ -9,7 +9,14 @@
 
 <ion-content [fullscreen]="true">
   <div id="container" class="bg-img">
-    <h1>Objet trouvé</h1>
+ 
+    <ion-label *ngIf="viewData.status==0" >
+      <h1 class="statut">Objet perdu </h1>
+    </ion-label>
+    <ion-label *ngIf="viewData.status==1">
+      <h1 class="statut">Objet Trouvé</h1>
+    </ion-label>
+
     <ion-card>
       <ion-item-sliding>
         <ion-item-options side="end">
@@ -21,6 +28,8 @@
        
         <ion-item lines="none">
           <ion-label>
+           
+
             <h2>Description : {{viewData.description}} </h2>
             <p>date : {{viewData.date}} </p>
             <p>lieux : {{viewData.location}} </p>

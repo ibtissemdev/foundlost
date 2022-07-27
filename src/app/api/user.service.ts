@@ -29,4 +29,11 @@ this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
 
  }
 
+ update(id: any){
+
+  return this.http.get("http://localhost/ionicserver/manage-data.php?key=update&id="+id)
+
+ }
+
+
 }

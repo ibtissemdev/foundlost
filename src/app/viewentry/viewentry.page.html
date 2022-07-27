@@ -25,6 +25,18 @@
             <p>date : {{viewData.date}} </p>
             <p>lieux : {{viewData.location}} </p>
             <p>id : {{viewData.id}} </p>
+           
+            <ion-toolbar >
+              <ion-segment value="{{viewData.status}}">
+                <ion-segment-button value="0" (click)="updateObject()">
+                 Perdu
+                </ion-segment-button>
+                <ion-segment-button value="1" (click)="updateObject()">
+                  Trouvé
+                </ion-segment-button>
+              </ion-segment>
+            </ion-toolbar>
+            
           </ion-label>
         </ion-item>
 

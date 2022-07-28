@@ -9,7 +9,13 @@
 
 <ion-content [fullscreen]="true">
   <div id="container" class="bg-img">
-    <h1>Liste des objets trouvés</h1>
+    <ion-card>
+      <div class="image">
+      <ion-card-header>
+       
+      </ion-card-header>
+    </div>
+  </ion-card>
     <ion-card *ngFor="let list of entryData">
       <ion-item-sliding>
         <ion-item-options side="end">

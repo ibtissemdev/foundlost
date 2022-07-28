@@ -9,10 +9,16 @@
 
 <ion-content [fullscreen]="true">
   <div id="container" class="bg-img"></div>
-  <h1><b>Ajouter un objet Trouvé</b></h1>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <h1 class="ion-text-center"><b>Ajouter un objet Trouvé</b></h1>
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
 
   <ion-card>
-    <form  (ngSubmit)="submitForm()" name="myForm">
+    <form (ngSubmit)="submitForm()" name="myForm">
       <ion-item lines="full">
         <ion-label>Description</ion-label>
         <ion-input [(ngModel)]="description" type="text" name="description"
@@ -21,7 +27,8 @@
 
       <ion-item lines="full">
         <ion-label>Date de la perte</ion-label>
-        <ion-input [(ngModel)]="date" name="date" type="date" placeholder="entrer la date de l'objet trouvé"></ion-input>
+        <ion-input [(ngModel)]="date" name="date" type="date" placeholder="entrer la date de l'objet trouvé">
+        </ion-input>
 
       </ion-item>
       <ion-item lines="full">
@@ -46,8 +53,8 @@
 
       </ion-item>
       <ion-button expand="block" type="submit" class="add-button">Ajouter un objet</ion-button>
-      <ion-button expand="block" type="reset"  class="add-button" >Effacer</ion-button>
-     
+      <ion-button expand="block" type="reset" class="add-button">Effacer</ion-button>
+
     </form>
   </ion-card>
 

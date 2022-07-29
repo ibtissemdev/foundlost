@@ -73,7 +73,9 @@ export class FoundPage implements OnInit {
        console.log("SUCCES ===", res);})
        this.isSubmitted = false;
     }
+    this.ionicForm.reset();
   }
+
   
 
   }

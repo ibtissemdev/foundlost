@@ -45,22 +45,42 @@
         <ion-label>Lieu</ion-label>
         <ion-input  type="text" formControlName="location" placeholder="entrer le lieu de l'objet trouvé">
         </ion-input>
-
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.location.errors?.required">
+          Lieu requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.location.errors?.minlength">
+         Plus de deux caractères.
+        </span>
       </ion-item>
       <ion-item lines="full">
         <ion-label>Prénom : </ion-label>
         <ion-input  type="text" formControlName="firstname" placeholder="entrer votre prénom"></ion-input>
-
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.required">
+          Prénom requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.minlength">
+         Plus de deux caractères.
+        </span>
       </ion-item>
       <ion-item lines="full">
         <ion-label>Nom : </ion-label>
         <ion-input  type="text" formControlName="lastname" placeholder="entrer votre nom"></ion-input>
-
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.required">
+          Nom requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.minlength">
+         Plus de deux caractères.
+        </span>
       </ion-item>
       <ion-item lines="full">
         <ion-label>Email : </ion-label>
         <ion-input  type="email" formControlName="email" placeholder="entrer votre e-mail"></ion-input>
-
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+         Mail requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+         Plus de deux caractères.
+        </span>
       </ion-item>
       <ion-button expand="block" type="submit" class="add-button">Ajouter un objet</ion-button>
       <ion-button expand="block" type="reset" class="add-button">Effacer</ion-button>

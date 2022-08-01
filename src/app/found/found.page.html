@@ -34,7 +34,7 @@
 
       <ion-item lines="full">
         <ion-label>Date de la perte</ion-label>
-        <ion-input  formControlName="date" type="date" placeholder="entrer la date de l'objet trouvé">
+        <ion-input formControlName="date" type="date" placeholder="entrer la date de l'objet trouvé">
         </ion-input>
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.date.errors?.required">
           Date requise.

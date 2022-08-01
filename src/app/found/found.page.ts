@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../api/user.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ToastController } from '@ionic/angular';
-
+import { getCurrencySymbol } from '@angular/common';
 
 @Component({
   selector: 'app-found',

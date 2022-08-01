@@ -9,41 +9,79 @@
 
 <ion-content [fullscreen]="true">
   <div id="container" class="bg-img"></div>
-  <h1><b>Ajouter un objet perdu</b></h1>
-
   <ion-card>
-    <form  #userForm="ngForm"  (ngSubmit)="submitForm(userForm)" >
+    <ion-card-header>
+      <ion-card-subtitle>
+        <h1 class="ion-text-center"><b>Ajouter un objet perdu</b></h1>
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  
+  <ion-card>
+    <form   [formGroup]="ionicForm" (ngSubmit)="submitForm()"  novalidate>
       <ion-item lines="full">
         <ion-label>Description</ion-label>
-        <ion-input [(ngModel)]="description" type="text" name="description"
+        <ion-input type="text" formControlName="description"
           placeholder="entrer la description de l'objet"></ion-input>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.required">
+            Description requise.
+          </span>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.minlength">
+           Plus de deux caractères.
+          </span>
       </ion-item>
 
       <ion-item lines="full">
         <ion-label>Date de la perte</ion-label>
-        <ion-input [(ngModel)]="date" name="date" type="date" placeholder="entrer la date de la perte"></ion-input>
+        <ion-input formControlName="date" type="date" placeholder="entrer la date de la perte">
+        </ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.date.errors?.required">
+          Date requise.
+        </span>
 
       </ion-item>
       <ion-item lines="full">
         <ion-label>Lieu</ion-label>
-        <ion-input [(ngModel)]="location" type="text" name="location" placeholder="entrer le lieu de la perte">
+        <ion-input formControlName="location" type="text"  placeholder="entrer le lieu de la perte">
         </ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.location.errors?.required">
+          Lieu requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.location.errors?.minlength">
+         Plus de deux caractères.
+        </span>
 
       </ion-item>
       <ion-item lines="full">
         <ion-label>Prénom : </ion-label>
-        <ion-input [(ngModel)]="firstname" type="text" name="firstname" placeholder="entrer votre prénom"></ion-input>
-
+        <ion-input type="text"  formControlName="firstname"  placeholder="entrer votre prénom"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.required">
+          Prénom requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.minlength">
+         Plus de deux caractères.
+        </span>
       </ion-item>
       <ion-item lines="full">
         <ion-label>Nom : </ion-label>
-        <ion-input [(ngModel)]="lastname" type="text" name="lastname" placeholder="entrer votre nom"></ion-input>
+        <ion-input formControlName="lastname"  type="text"  placeholder="entrer votre nom"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.required">
+          Nom requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.minlength">
+         Plus de deux caractères.
+        </span>
 
       </ion-item>
       <ion-item lines="full">
         <ion-label>Email : </ion-label>
-        <ion-input [(ngModel)]="email" type="email" name="email" placeholder="entrer votre e-mail"></ion-input>
-
+        <ion-input  formControlName="email"  type="email"  placeholder="entrer votre e-mail"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+          Mail requis.
+         </span>
+         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+          Plus de deux caractères.
+         </span>
       </ion-item>
       <ion-button expand="block" type="submit"  class="add-button"  >Ajouter un objet</ion-button>
       <ion-button expand="block" type="reset"  class="add-button" >Effacer</ion-button>

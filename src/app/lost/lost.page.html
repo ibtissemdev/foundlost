@@ -26,7 +26,7 @@
           <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.required">
             Description requise.
           </span>
-          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.minlength">
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.description.errors?.pattern">
            Plus de deux caractères.
           </span>
       </ion-item>
@@ -47,7 +47,7 @@
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.location.errors?.required">
           Lieu requis.
         </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.location.errors?.minlength">
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.location.errors?.pattern">
          Plus de deux caractères.
         </span>
 
@@ -58,7 +58,7 @@
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.required">
           Prénom requis.
         </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.minlength">
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.firstname.errors?.pattern">
          Plus de deux caractères.
         </span>
       </ion-item>
@@ -68,7 +68,7 @@
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.required">
           Nom requis.
         </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.minlength">
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.lastname.errors?.pattern">
          Plus de deux caractères.
         </span>
 

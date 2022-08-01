@@ -63,21 +63,21 @@ export class ViewentryPage implements OnInit {
 
 
     this.apiService.delete(this.viewData.id).subscribe(res => {
-      this.getOneEntry();
+      // this.getOneEntry();
       console.log(res)
     });
-    this.router.navigateByUrl("/lostlist");
+    this.router.navigateByUrl("/home");
   }
   updateObject(viewData: any) {
 
 
     this.apiService.update(this.viewData.id).subscribe(res => {
-      this.getOneEntry();
+      // this.getOneEntry();
      
       console.log(res)
     });
     console.log(this.viewData.status)
-    // this.router.navigateByUrl("/lostlist");
+      this.router.navigateByUrl("/home");
   }
 
 

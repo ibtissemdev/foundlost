@@ -25,11 +25,12 @@ export class FoundPage implements OnInit {
 
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
-      description: ['', [Validators.required, Validators.minLength(2)]],
+      status:['1'],
+      description: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,20}$")]],
       date: [null, Validators.required],
-      location: ['', [Validators.required, Validators.minLength(2)]],
-      firstname: ['', [Validators.required, Validators.minLength(2)]],
-      lastname: ['', [Validators.required, Validators.minLength(2)]],
+      location: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
+      firstname: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
+      lastname: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]]
     })
 

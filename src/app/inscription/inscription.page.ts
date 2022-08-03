@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./inscription.page.scss'],
 })
 export class InscriptionPage implements OnInit {
-  email: string;
+  email_user: string;
   password: string;
   ionicForm: FormGroup;
   isSubmitted = false;
@@ -20,7 +20,7 @@ export class InscriptionPage implements OnInit {
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
   
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      email_user: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       password: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,20}$")]],
     })
 
@@ -34,7 +34,7 @@ export class InscriptionPage implements OnInit {
       return false;
     } else {
       console.log(this.ionicForm.value)
-      this.apiService.submitForm(this.ionicForm.value).subscribe((res) => {
+      this.apiService.createUser(this.ionicForm.value).subscribe((res) => {
         this.valider();
         console.log("SUCCES ===", res);
       })

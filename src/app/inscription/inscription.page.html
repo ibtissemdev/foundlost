@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="/home" text="Accueil"></ion-back-button>
     </ion-buttons>
     <ion-title>Inscription</ion-title>
-  </ion-toolbar>
+  </ion-toolbar>².
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -23,11 +23,11 @@
 
       <ion-item lines="full">
         <ion-label>E-mail : </ion-label>
-        <ion-input  type="email" formControlName="email" placeholder="entrer votre e-mail"></ion-input>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+        <ion-input  type="email" formControlName="email_user" placeholder="entrer votre e-mail"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email_user.errors?.required">
          E-mail requis.
         </span>
-        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email_user.errors?.pattern">
          Format non valide.
         </span>
       </ion-item>
@@ -45,7 +45,8 @@
          </span>
       </ion-item>
 
-      <ion-button expand="block" type="submit" class="add-button" >Ajouter un objet</ion-button>
+      <ion-button expand="block" type="submit" class="add-button" >Inscription</ion-button>
+      <ion-button expand="block" (click)="verifier()" class="add-button" >connexion</ion-button>
       <ion-button expand="block" type="reset" class="add-button">Effacer</ion-button>
 
     </form>

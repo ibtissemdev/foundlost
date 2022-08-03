@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Accueil"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container" class="bg-img"></div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <h1 class="ion-text-center"><b>Demande d'inscription</b></h1>
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+    <form [formGroup]="ionicForm" (ngSubmit)="submitForm()"  novalidate>
+
+
+      <ion-item lines="full">
+        <ion-label>E-mail : </ion-label>
+        <ion-input  type="email" formControlName="email" placeholder="entrer votre e-mail"></ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+         E-mail requis.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+         Format non valide.
+        </span>
+      </ion-item>
+    
+
+      <ion-item lines="full">
+        <ion-label>Mot de passe : </ion-label>
+        <ion-input formControlName="password" type="password" placeholder="entrer un mot de passe">
+        </ion-input>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.required">
+          Date requise.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.password.errors?.pattern">
+          Plus de trois caractères.
+         </span>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="add-button" >Ajouter un objet</ion-button>
+      <ion-button expand="block" type="reset" class="add-button">Effacer</ion-button>
+
+    </form>
+  </ion-card>
+
+
+</ion-content>

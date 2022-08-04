@@ -38,7 +38,13 @@ this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
  createUser(data) {
   return this.http.post("http://localhost/ionicserver/manage-data.php?key=user", data);
 }
+
+verif(data) {
+  return this.http.post("http://localhost/ionicserver/manage-data.php?key=verif", data);
+}
+
  }
+
 
 
 

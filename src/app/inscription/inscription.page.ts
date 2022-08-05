@@ -44,9 +44,13 @@ export class InscriptionPage implements OnInit {
       return false;
     } else {
       console.log(this.ionicForm.value)
+      this.email_user=this.ionicForm.value['email_user'];
       this.apiService.createUser(this.ionicForm.value).subscribe((res) => {
         this.valider();
         console.log("SUCCES ===", res);
+        sessionStorage.setItem('email',this.email_user)
+        this.router.navigateByUrl("/home");
+
         if(res==false){
 this.uniqueMail();
 
@@ -64,8 +68,8 @@ this.uniqueMail();
 
       message: 'Inscription effectuée avec succès',
       color: 'success',
-      duration: 3000,
-      position: 'middle',
+      duration: 4000,
+      position: 'bottom',
       buttons: [{
         role: "cancel",
         icon: 'close'

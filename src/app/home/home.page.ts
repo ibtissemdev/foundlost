@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public toastController: ToastController) {}
   ngOnInit() {
     console.log(sessionStorage.getItem('email'))
     if(!sessionStorage.getItem('email')) {
@@ -20,8 +20,26 @@ export class HomePage {
   }
   deconnecter() {
     sessionStorage.removeItem('email');
+    this.decon();
     this.router.navigateByUrl("/inscription");
+
+
   }
-  
+  async decon() {
+    let toast = await this.toastController.create({
+
+      message: 'Vous êtes déconnecté.e.s',
+      color: 'success',
+      duration: 4000,
+      position: 'bottom',
+      buttons: [{
+        role: "cancel",
+        icon: 'close'
+
+      }]
+
+    });
+    toast.present();
+  }
 
 }

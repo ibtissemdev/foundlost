@@ -1,10 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" text="Accueil"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Inscription</ion-title>
-  </ion-toolbar>².
+
+   
+    <ion-title>Inscription/Authentification</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -12,7 +11,7 @@
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>
-        <h1 class="ion-text-center"><b>Demande d'inscription</b></h1>
+        <h1 class="ion-text-center"><b>Demande d'inscription /Authentification</b></h1>
       </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
@@ -23,7 +22,7 @@
 
       <ion-item lines="full">
         <ion-label>E-mail : </ion-label>
-        <ion-input  type="email" formControlName="email_user" placeholder="entrer votre e-mail"></ion-input>
+        <ion-input id="email_user" type="email" formControlName="email_user" placeholder="entrer votre e-mail"></ion-input>
         <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email_user.errors?.required">
          E-mail requis.
         </span>

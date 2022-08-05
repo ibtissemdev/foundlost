@@ -27,6 +27,8 @@ export class InscriptionPage implements OnInit {
       password: ['', [Validators.required,  Validators.pattern(/[A-Z]+.*[0-9]+.*[^\w]+|[A-Z]+.*[^\w]+.*[0-9]+|[0-9]+.*[A-Z]+.*[^\w]+|[0-9]+.*[^\w]+.*[A-Z]+|[^\w]+.*[A-Z]+.*[0-9]+|[^\w]+.*[0-9]+.*[A-Z]+/), Validators.minLength(8)]]
     })
 
+    console.log(sessionStorage.getItem('email'))
+
   }
 
   get errorControl() {
@@ -117,12 +119,15 @@ verifier(){
     return false;
   } else {
     console.log(this.ionicForm.value)
-    this.apiService.verif(this.ionicForm.value).subscribe((res) => {
-      
+    this.email_user=this.ionicForm.value['email_user'];
+
+        this.apiService.verif(this.ionicForm.value).subscribe((res) => {
+      // console.log(this.ionicForm.value);
       console.log("SUCCES ===", res);
       if (res==true) {
+        sessionStorage.setItem('email',this.email_user)
         // this.echec();
-         this.router.navigateByUrl("/home");
+          this.router.navigateByUrl("/home");
       } else {
         this.echec();
         // this.router.navigateByUrl("/inscription");

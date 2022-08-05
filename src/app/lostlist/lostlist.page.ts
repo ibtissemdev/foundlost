@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lostlist',
@@ -16,13 +17,18 @@ export class LostlistPage implements OnInit {
 
   // Récupérer le service par injection de dépendance
 
-  constructor(public http : HttpClient) { 
+  constructor(public http : HttpClient,private router: Router) { 
     this. getEntry()
     console.log(this.entryData)
   }
 
   ngOnInit() {
+    console.log(sessionStorage.getItem('email'))
+    if(!sessionStorage.getItem('email')) {
     
+    this.router.navigateByUrl("/inscription");
+    }
+
 
   }
    getEntry() {

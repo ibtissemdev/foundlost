@@ -30,6 +30,13 @@ export class ViewentryPage implements OnInit {
   }
 
   ngOnInit() {
+
+    console.log(sessionStorage.getItem('email'))
+    if(!sessionStorage.getItem('email')) {
+    
+    this.router.navigateByUrl("/inscription");
+    }
+
   }
   getOneEntry() {
     var urlcourante = document.location.href;

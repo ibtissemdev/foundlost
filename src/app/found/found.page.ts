@@ -3,6 +3,8 @@ import { UserService } from '../api/user.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ToastController } from '@ionic/angular';
 import { getCurrencySymbol } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-found',
@@ -21,7 +23,7 @@ export class FoundPage implements OnInit {
   isSubmitted = false;
 
 
-  constructor(public apiService: UserService, public formBuilder: FormBuilder, public toastController: ToastController) { }
+  constructor(public apiService: UserService, public formBuilder: FormBuilder, public toastController: ToastController,private router: Router) { }
 
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
@@ -33,8 +35,15 @@ export class FoundPage implements OnInit {
       lastname: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]]
     })
+    console.log(sessionStorage.getItem('email'))
+if(!sessionStorage.getItem('email')) {
 
+this.router.navigateByUrl("/inscription");
+}
   }
+
+
+
   get errorControl() {
     return this.ionicForm.controls;
   }

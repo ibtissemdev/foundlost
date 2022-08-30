@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'; //import de bibliothèque de 
 import { UserService } from '../api/user.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ToastController } from '@ionic/angular';
-import { getCurrencySymbol } from '@angular/common';
+
 import { Router } from '@angular/router';
 
 
@@ -22,7 +22,7 @@ export class FoundPage implements OnInit {
   ionicForm: FormGroup;
   isSubmitted = false;
 
-
+//Injection de dépendances
   constructor(public apiService: UserService, public formBuilder: FormBuilder, public toastController: ToastController,private router: Router) { 
 
     if(!sessionStorage.getItem('email')) {
@@ -32,6 +32,7 @@ export class FoundPage implements OnInit {
   }
 
   ngOnInit() {
+    //this : l'objet que l'on manipule dans la classe où l'on est
     this.ionicForm = this.formBuilder.group({
       status:['1'],
       description: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,20}$")]],
@@ -41,7 +42,7 @@ export class FoundPage implements OnInit {
       lastname: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]]
     })
-    console.log(sessionStorage.getItem('email'))
+    // console.log(sessionStorage.getItem('email'))
 
   }
 
@@ -60,10 +61,10 @@ export class FoundPage implements OnInit {
       return false;
     } else {
       console.log(this.ionicForm.value)
-      //On envoie une promesse
+      //On envoie une promesse - objet observable /
       this.apiService.submitForm(this.ionicForm.value).subscribe((res) => {
         this.valider(); 
-        console.log("SUCCES ===", res);
+        // console.log("SUCCES ===", res);
       })
 
       this.isSubmitted = false; // On remet le flag à false car l'action est terminée

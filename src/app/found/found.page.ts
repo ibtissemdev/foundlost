@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; //import de bibliothèque de méthodes
 import { UserService } from '../api/user.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { ToastController } from '@ionic/angular';
@@ -23,7 +23,13 @@ export class FoundPage implements OnInit {
   isSubmitted = false;
 
 
-  constructor(public apiService: UserService, public formBuilder: FormBuilder, public toastController: ToastController,private router: Router) { }
+  constructor(public apiService: UserService, public formBuilder: FormBuilder, public toastController: ToastController,private router: Router) { 
+
+    if(!sessionStorage.getItem('email')) {
+
+      this.router.navigateByUrl("/inscription");
+      }
+  }
 
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
@@ -33,39 +39,37 @@ export class FoundPage implements OnInit {
       location: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
       firstname: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
       lastname: ['', [Validators.required,  Validators.pattern("^[0-9a-zA-Z- éè']{3,10}$")]],
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]]
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]]
     })
     console.log(sessionStorage.getItem('email'))
-if(!sessionStorage.getItem('email')) {
 
-this.router.navigateByUrl("/inscription");
-}
   }
 
 
 
-  get errorControl() {
+  get errorControl() {//Affiche les erreurs pour chaque input en vérifiant les conditions plus haut
     return this.ionicForm.controls;
   }
 
   submitForm() {
    
-    this.isSubmitted = true;
+    this.isSubmitted = true;//une fois la méthode appélé on passe a true 
 
-    if (!this.ionicForm.valid) {
-      console.log('Please provide all the required values!')
+    if (!this.ionicForm.valid) {// Si le formulaire n'est pas valide
+      console.log('Remplissez tous les champs requis !')
       return false;
     } else {
       console.log(this.ionicForm.value)
+      //On envoie une promesse
       this.apiService.submitForm(this.ionicForm.value).subscribe((res) => {
-        this.valider();
+        this.valider(); 
         console.log("SUCCES ===", res);
       })
 
-      this.isSubmitted = false;
+      this.isSubmitted = false; // On remet le flag à false car l'action est terminée
     }
 
-    this.ionicForm.reset();
+    this.ionicForm.reset();// On réinitialise le formulaire
   }
 
   async valider() {
@@ -82,7 +86,7 @@ this.router.navigateByUrl("/inscription");
       }]
 
     });
-    toast.present();
+   console.log(toast.present()) ;
   }
 
 }

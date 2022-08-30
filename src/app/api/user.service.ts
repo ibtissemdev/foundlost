@@ -14,7 +14,8 @@ this.headers = new HttpHeaders();
 // On définit les options de configuration et la CORS policy
 this.headers.append('Accept', 'application/json');
 this.headers.append('Content-Type', 'application/json');
-this.headers.append('Access-Control-Allow-Origin', '*');
+this.headers.append('Access-Control-Allow-Origin', '*');// accepte n'importe quelle requête, pas de problèmes en développement mais pour la sécurité il faut le modifier lors de la mise en prod.
+
 this.headers.append('Access-Control-Allow-Headers', 'Content-Type');
 
    }

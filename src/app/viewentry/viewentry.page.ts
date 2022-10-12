@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from '../api/user.service';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-viewentry',
@@ -22,7 +23,7 @@ export class ViewentryPage implements OnInit {
   };
   // Récupérer le service par injection de dépendance
 
-  constructor(public http: HttpClient, public apiService: UserService, private router: Router) {
+  constructor(public http: HttpClient, public apiService: UserService,public toastController: ToastController, private router: Router) {
     this.getOneEntry()
     //  console.log(this.entryData[1])     
 
@@ -85,6 +86,30 @@ export class ViewentryPage implements OnInit {
     });
     console.log(this.viewData.status)
       this.router.navigateByUrl("/home");
+  }
+
+  deconnecter() {
+    sessionStorage.removeItem('email');
+    this.decon();
+    this.router.navigateByUrl("/inscription");
+
+
+  }
+  async decon() {
+    let toast = await this.toastController.create({
+
+      message: 'Vous êtes déconnecté.e.s',
+      color: 'success',
+      duration: 4000,
+      position: 'bottom',
+      buttons: [{
+        role: "cancel",
+        icon: 'close'
+
+      }]
+
+    });
+    toast.present();
   }
 
 

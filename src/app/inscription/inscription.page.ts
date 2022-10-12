@@ -46,15 +46,19 @@ export class InscriptionPage implements OnInit {
       console.log(this.ionicForm.value)
       this.email_user=this.ionicForm.value['email_user'];
       this.apiService.createUser(this.ionicForm.value).subscribe((res) => {
-        this.valider();
-        console.log("SUCCES ===", res);
-        sessionStorage.setItem('email',this.email_user)
-        this.router.navigateByUrl("/home");
-
         if(res==false){
-this.uniqueMail();
+          this.uniqueMail();
+          this.router.navigateByUrl("/inscription");
+                  } else if (res==true) {
 
-        }
+                    this.valider();
+                    console.log("SUCCES ===", res);
+                    sessionStorage.setItem('email',this.email_user)
+                     this.router.navigateByUrl("/home");
+            
+                    // this.router.navigateByUrl("/home");
+                  }
+
       })
 
       this.isSubmitted = false;

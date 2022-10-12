@@ -9,13 +9,16 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private router: Router, public toastController: ToastController) {}
-  ngOnInit() {
-    console.log(sessionStorage.getItem('email'))
-    if(!sessionStorage.getItem('email')) {
+  constructor(private router: Router, public toastController: ToastController) {
+
+       // console.log(sessionStorage.getItem('email'))
+       if(!sessionStorage.getItem('email')) {
     
-    this.router.navigateByUrl("/inscription");
-    }
+        this.router.navigateByUrl("/inscription");
+        }
+  }
+  ngOnInit() {
+ 
 
   }
   deconnecter() {

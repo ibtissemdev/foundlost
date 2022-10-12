@@ -44,6 +44,9 @@ export class FoundPage implements OnInit {
     })
     // console.log(sessionStorage.getItem('email'))
 
+
+
+
   }
 
 
@@ -89,5 +92,31 @@ export class FoundPage implements OnInit {
     });
    console.log(toast.present()) ;
   }
+
+
+  deconnecter() {
+    sessionStorage.removeItem('email');
+    this.decon();
+    this.router.navigateByUrl("/inscription");
+
+
+  }
+  async decon() {
+    let toast = await this.toastController.create({
+
+      message: 'Vous êtes déconnecté.e.s',
+      color: 'success',
+      duration: 4000,
+      position: 'bottom',
+      buttons: [{
+        role: "cancel",
+        icon: 'close'
+
+      }]
+
+    });
+    toast.present();
+  }
+
 
 }
